@@ -6,22 +6,22 @@ import org.scalatest.FreeSpec
 class task2test extends FreeSpec with ChiselScalatestTester {
   "Chisel" in {
     test(new task2) { a =>
-        a.io.in1.poke(true.B) 
-      a.io.in2.poke(false.B) 
-      a.io.in3.poke(true.B)
-      a.io.in4.poke(false.B) 
+        a.io.in(0).poke(false.B) 
+      a.io.in(1).poke(false.B) 
+      a.io.in(2).poke(true.B)
+      a.io.in(3).poke(false.B) 
 
-      a.io.s0.poke(false.B) 
-      a.io.s1.poke(false.B)  
+      a.io.s(0).poke(false.B) 
+      a.io.s(1).poke(true.B)  
 
       a.io.shift.poke(true.B) 
 
       a.clock.step(1) 
 
-      a.io.out0.expect(true.B)
-      a.io.out1.expect(true.B)
-      a.io.out2.expect(true.B)
-      a.io.out3.expect(true.B)
+      a.io.out(0).expect(false.B)
+      a.io.out(1).expect(false.B)
+      a.io.out(2).expect(false.B)
+      a.io.out(3).expect(false.B)
     }
   }
 }

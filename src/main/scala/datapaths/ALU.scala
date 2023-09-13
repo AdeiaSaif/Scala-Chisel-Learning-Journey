@@ -41,7 +41,7 @@ class ALU(width: Int) extends Module {
   io.alu_out := 0.S
   when((io.opcode === "b0110011".U) || (io.opcode === "b0010011".U)) {
     when(io.alu_op === ALU_ADD) {
-      io.alu_out := io.arg_x + io.arg_y 
+      io.alu_out := io.arg_x + io.arg_y
     }
       .elsewhen(io.alu_op === ALU_SUB) {
         io.alu_out := io.arg_x - io.arg_y
@@ -101,9 +101,9 @@ class ALU(width: Int) extends Module {
       io.alu_out := 0.S
 
       }
-    } 
-//     //jalr 
-// .elsewhen(io.opcode === "b1100111".U) {
-//       io.alu_out := io.arg_x
-//     }
+    }
+    //jalr 
+.elsewhen(io.opcode === "b1100111".U) {
+      io.alu_out := io.arg_x + io.arg_y
+    }
 }
